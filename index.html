@@ -9,10 +9,13 @@
     <title>Love Maths</title>
 </head>
 <body>
+    <!-- Heading for page including logo -->
     <h1 class="heading">
         <img class="logo" src="assets/images/logo.png" alt="logo"> Love Maths
     </h1>
+    <!-- Game Area -->
     <div class="game-area">
+        <!-- Controls Area with buttons to choose operator -->
         <div class="controls-area">
             <button class="btn btn--big btn--green">
                 <i class="fas fa-plus"></i>
@@ -27,16 +30,21 @@
                 <i class="fas fa-divide"></i>
             </button>
         </div>
+        <!-- Question Area showing operands and operator -->
         <div class="question-area">
             <span id="operand1">0</span>
             <span id="operator">x</span>
             <span id="operand2">0</span>
             <span>=</span>
+            <!-- To enter answer here -->
             <p class="answer-message">Enter Answer:</p>
+            <!-- Input for answer to solve problem -->
             <input id="answer-box" type="number">
         </div>
+        <!-- Button to submit answer -->
         <button class="btn btn--gray">Submit Answer</button>
     </div>
+    <!-- Score Area to show correct and incorrect answers -->
     <div class="score-area">
         <p class="scores">Correct Answers <span id="score">0</span></p>
         <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>       
