@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             //'this' refers to button clicked
             if (this.getAttribute("data-type")==="submit") {
-                alert("You clicked submit!");
+                checkAnswer();
             } else {
                 let gameType = this.getAttribute("data-type");
                 runGame(gameType);
             }
-        })
+        });
     }
     runGame("addition");
 });
@@ -35,6 +35,31 @@ function runGame(gameType) {
     }
 }
 
+/**
+ * Checks the answer agaist the first element in
+ * the returned calculateCorrectAnswer array
+ */
+
+function checkAnswer() {
+
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect) {
+        alert("Hey! You got it right! :D");
+    } else {
+        alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+    }
+
+    runGame(calculatedAnswer[1]);
+}
+
+/**
+ * Gets the operands (the numbers) and the operator (plus, minus etc)
+ * directly from the dom, and returns the correct answer.
+ */
+
 function calculateCorrectAnswer() {
 
     let operand1 = parseInt(document.getElementById(operand1).innerText);
@@ -47,7 +72,6 @@ function calculateCorrectAnswer() {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
     }
-
 }
 
 function incrementScore() {
